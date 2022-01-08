@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/workspace/mygram/app/src/main/res/drawable/ic_round_account_circle.xml" value="0.35989583333333336" />
         <entry key="..\:/workspace/mygram/app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />
+        <entry key="..\:/workspace/mygram/app/src/main/res/layout/layout_include_story.xml" value="0.3390625" />
+        <entry key="..\:/workspace/mygram/app/src/main/res/layout/list_item_post.xml" value="0.33958333333333335" />
+        <entry key="..\:/workspace/mygram/app/src/main/res/layout/list_item_user_istory.xml" value="0.3390625" />
       </map>
     </option>
   </component>
