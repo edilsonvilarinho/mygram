@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 class PostRecyclerViewAdapter :
     RecyclerView.Adapter<PostRecyclerViewAdapter.ViewHolder>() {
 
-    var mPosts = emptyList<Story>()
+    var mPosts = emptyList<Post>()
         set(value) {
             notifyDataSetChanged()
             field = value
@@ -29,9 +29,9 @@ class PostRecyclerViewAdapter :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val user: Story = mPosts[position]
+        val post: Post = mPosts[position]
         val username = holder.username
-        username.text = user.username
+        username.text = post.username
     }
 
     override fun getItemCount(): Int {

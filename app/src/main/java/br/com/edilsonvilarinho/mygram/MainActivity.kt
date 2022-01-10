@@ -2,6 +2,8 @@ package br.com.edilsonvilarinho.mygram
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.edilsonvilarinho.mygram.databinding.ActivityMainBinding
@@ -13,28 +15,34 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private lateinit var mainViewModel: MainViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         setContentView(binding.root)
-        val storyList: ArrayList<Story> = ArrayList()
-        for (index in 0..100) {
-            storyList.add(Story("username:$index", "img"))
-        }
+        init()
+        initObservers()
+    }
+
+    private fun init() {
         adapterStory = StoryRecyclerViewAdapter()
-        adapterStory.mStorys = storyList
         binding.storyList.adapter = adapterStory
         binding.storyList.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-
-        val postList: ArrayList<Post> = ArrayList()
-        for (index in 0..100) {
-            postList.add(Post("username:$index"))
-        }
         adapterPost = PostRecyclerViewAdapter()
-        adapterPost.mPosts = storyList
         binding.postList.adapter = adapterPost
         binding.postList.layoutManager = LinearLayoutManager(this)
-
     }
+
+    private fun initObservers() {
+        mainViewModel.storeList.observe(this, Observer {
+            adapterStory.mStorys = it
+        })
+        mainViewModel.postList.observe(this, Observer {
+            adapterPost.mPosts = it
+        })
+    }
+
 }
