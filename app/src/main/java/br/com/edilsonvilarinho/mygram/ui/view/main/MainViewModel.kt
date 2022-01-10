@@ -1,9 +1,11 @@
-package br.com.edilsonvilarinho.mygram
+package br.com.edilsonvilarinho.mygram.ui.view.main
 
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.edilsonvilarinho.mygram.data.model.Post
+import br.com.edilsonvilarinho.mygram.data.model.Story
 
 class MainViewModel : ViewModel() {
 

@@ -1,10 +1,12 @@
-package br.com.edilsonvilarinho.mygram
+package br.com.edilsonvilarinho.mygram.ui.view.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.com.edilsonvilarinho.mygram.ui.view.main.adpter.PostRecyclerViewAdapter
+import br.com.edilsonvilarinho.mygram.ui.view.main.adpter.StoryRecyclerViewAdapter
 import br.com.edilsonvilarinho.mygram.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

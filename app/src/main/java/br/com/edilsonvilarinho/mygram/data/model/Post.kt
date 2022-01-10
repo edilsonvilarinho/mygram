@@ -1,4 +1,4 @@
-package br.com.edilsonvilarinho.mygram
+package br.com.edilsonvilarinho.mygram.data.model
 
 class Post(
     val username: String,

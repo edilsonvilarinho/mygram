@@ -1,4 +1,4 @@
-package br.com.edilsonvilarinho.mygram
+package br.com.edilsonvilarinho.mygram.ui.view.main.adpter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import br.com.edilsonvilarinho.mygram.R
+import br.com.edilsonvilarinho.mygram.data.model.Post
 
 class PostRecyclerViewAdapter :
     RecyclerView.Adapter<PostRecyclerViewAdapter.ViewHolder>() {
