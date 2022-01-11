@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.edilsonvilarinho.mygram.R
 import br.com.edilsonvilarinho.mygram.data.model.Post
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
@@ -26,7 +27,7 @@ class PostRecyclerViewAdapter :
         val picture = itemView.findViewById<ImageView>(R.id.picture)
         val imageView = itemView.findViewById<ImageView>(R.id.imageView)
         val progressBarImg = itemView.findViewById<ProgressBar>(R.id.progressBarImg)
-        val progressBarUsername = itemView.findViewById<ProgressBar>(R.id.progressBarUsername)
+        val shimmerLayoutPicturePostUsername = itemView.findViewById<ShimmerFrameLayout>(R.id.shimmerLayoutPicturePostUsername)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -41,18 +42,18 @@ class PostRecyclerViewAdapter :
         val username = holder.username
         username.text = post.username
         val picture = holder.picture
-        val progressBarUsername = holder.progressBarUsername
-        progressBarUsername.visibility = View.VISIBLE
+        val shimmerLayoutPicturePostUsername = holder.shimmerLayoutPicturePostUsername
+        shimmerLayoutPicturePostUsername.visibility = View.VISIBLE
         Picasso.get()
             .load(post.img)
             .error(R.drawable.ic_round_account_circle)
             .into(picture, object : Callback {
                 override fun onSuccess() {
-                    progressBarUsername.visibility = View.GONE
+                    shimmerLayoutPicturePostUsername.visibility = View.GONE
                 }
 
                 override fun onError(e: Exception?) {
-                    progressBarUsername.visibility = View.GONE
+                    shimmerLayoutPicturePostUsername.visibility = View.GONE
                 }
             })
 
