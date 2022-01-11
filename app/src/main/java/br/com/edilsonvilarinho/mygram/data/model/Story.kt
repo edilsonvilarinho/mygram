@@ -1,3 +1,10 @@
 package br.com.edilsonvilarinho.mygram.data.model
 
-class Story(val username: String, val img: String)
+import com.google.gson.annotations.SerializedName
+
+class Story(
+    @SerializedName("username") val username: String,
+    @SerializedName("img") val img: String,
+    @SerializedName("createdAt") val createdAt: String,
+    @SerializedName("id") val id: String
+)
