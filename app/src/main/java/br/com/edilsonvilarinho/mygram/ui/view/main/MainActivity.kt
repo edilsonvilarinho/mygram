@@ -2,6 +2,7 @@ package br.com.edilsonvilarinho.mygram.ui.view.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -43,6 +44,12 @@ class MainActivity : AppCompatActivity() {
         })
         mainViewModel.postList.observe(this, Observer {
             adapterPost.mPosts = it
+        })
+        mainViewModel.loadingStorys.observe(this, Observer {
+            binding.progressBarStorys.isVisible = it
+        })
+        mainViewModel.loadingPosts.observe(this, Observer {
+            binding.progressBarPosts.isVisible = it
         })
     }
 

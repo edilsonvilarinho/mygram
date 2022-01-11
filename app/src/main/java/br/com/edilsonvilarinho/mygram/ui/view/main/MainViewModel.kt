@@ -24,6 +24,12 @@ class MainViewModel : ViewModel() {
     private val userRepository: StoryRepository = StoryRepositoryImpl()
     private val postRepository: PostRepository = PostRepositoryImpl()
 
+    private val mLoadingStorys = MutableLiveData<Boolean>().apply { this.value = true }
+    val loadingStorys: LiveData<Boolean> = mLoadingStorys
+
+    private val mLoadingPosts = MutableLiveData<Boolean>().apply { this.value = true }
+    val loadingPosts: LiveData<Boolean> = mLoadingPosts
+
     init {
         getStors()
         getPosts()
@@ -37,6 +43,8 @@ class MainViewModel : ViewModel() {
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
+            }finally {
+                mLoadingStorys.value = false
             }
 
         }
@@ -50,6 +58,8 @@ class MainViewModel : ViewModel() {
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
+            }finally {
+                mLoadingPosts.value = false
             }
 
         }
