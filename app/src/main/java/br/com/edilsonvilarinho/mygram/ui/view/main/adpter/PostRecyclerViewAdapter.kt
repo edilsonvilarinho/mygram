@@ -26,7 +26,7 @@ class PostRecyclerViewAdapter :
         val username = itemView.findViewById<TextView>(R.id.username)
         val picture = itemView.findViewById<ImageView>(R.id.picture)
         val imageView = itemView.findViewById<ImageView>(R.id.imageView)
-        val progressBarImg = itemView.findViewById<ProgressBar>(R.id.progressBarImg)
+        val shimmerLayoutPicturePostImg = itemView.findViewById<ShimmerFrameLayout>(R.id.shimmerLayoutPicturePostImg)
         val shimmerLayoutPicturePostUsername = itemView.findViewById<ShimmerFrameLayout>(R.id.shimmerLayoutPicturePostUsername)
     }
 
@@ -58,18 +58,18 @@ class PostRecyclerViewAdapter :
             })
 
         val imageView = holder.imageView
-        val progressBarImg = holder.progressBarImg
-        progressBarImg.visibility = View.VISIBLE
+        val shimmerLayoutPicturePostImg = holder.shimmerLayoutPicturePostImg
+        shimmerLayoutPicturePostImg.visibility = View.VISIBLE
         Picasso.get()
             .load(post.img)
             .error(R.drawable.ic_round_account_circle)
             .into(imageView, object : Callback {
                 override fun onSuccess() {
-                    progressBarImg.visibility = View.GONE
+                    shimmerLayoutPicturePostImg.visibility = View.GONE
                 }
 
                 override fun onError(e: Exception?) {
-                    progressBarImg.visibility = View.GONE
+                    shimmerLayoutPicturePostImg.visibility = View.GONE
                 }
             })
     }
