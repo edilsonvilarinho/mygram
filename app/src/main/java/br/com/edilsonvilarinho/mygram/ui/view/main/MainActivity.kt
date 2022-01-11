@@ -46,10 +46,10 @@ class MainActivity : AppCompatActivity() {
             adapterPost.mPosts = it
         })
         mainViewModel.loadingStorys.observe(this, Observer {
-            binding.progressBarStorys.isVisible = it
+            binding.shimmerLayoutStorys.isVisible = it
         })
         mainViewModel.loadingPosts.observe(this, Observer {
-            binding.progressBarPosts.isVisible = it
+            binding.shimmerLayoutPosts.isVisible = it
         })
     }
 

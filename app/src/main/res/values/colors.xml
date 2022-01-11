@@ -10,4 +10,6 @@
     <color name="granitegray">#6F646464</color>
 
     <color name="colorDetail">#090000</color>
+
+    <color name="shimmerColor">#C2C2C2</color>
 </resources>
