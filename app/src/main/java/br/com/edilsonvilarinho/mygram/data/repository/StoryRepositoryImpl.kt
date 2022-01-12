@@ -11,9 +11,13 @@ class StoryRepositoryImpl(
     private val storyLocalDataSource: StoryLocalDataSource
 ) : StoryRepository {
     override suspend fun getStorys(): List<Story>? {
-        val storyList = storyRemoteDataSource.getStorys()
-        storyLocalDataSource.insert(storyList.map { it.storyEntity() })
-        return storyLocalDataSource.get().map { it.toStory() }
+        return try {
+            val storyList = storyRemoteDataSource.getStorys()
+            storyLocalDataSource.insert(storyList.map { it.storyEntity() })
+            storyLocalDataSource.get().map { it.toStory() }
+        } catch (e: Exception) {
+            storyLocalDataSource.get().map { it.toStory() }
+        }
     }
 
     override suspend fun getStorysLocalData(): List<Story>? {

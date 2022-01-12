@@ -11,9 +11,13 @@ class PostRepositoryImpl(
     private val postLocalDataSource: PostLocalDataSource
 ) : PostRepository {
     override suspend fun getPosts(): List<Post>? {
-        val postList = postRemoteDataSource.getPosts()
-        postLocalDataSource.insert(postList.map { it.postEntity() })
-        return postLocalDataSource.getAll().map { it.toPost() }
+        return try {
+            val postList = postRemoteDataSource.getPosts()
+            postLocalDataSource.insert(postList.map { it.postEntity() })
+            postLocalDataSource.getAll().map { it.toPost() }
+        } catch (e: Exception) {
+            postLocalDataSource.getAll().map { it.toPost() }
+        }
     }
 
     override suspend fun getPostsLocalData(): List<Post>? {

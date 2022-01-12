@@ -39,9 +39,6 @@ class MainViewModel(
                 storyRepository.getStorys()?.let {
                     mStoreList.value = it
                 }
-            } catch (e: Exception) {
-                e.printStackTrace()
-                mStoreList.value = storyRepository.getStorysLocalData()
             } finally {
                 mLoadingStorys.value = false
             }
@@ -55,9 +52,6 @@ class MainViewModel(
                 postRepository.getPosts()?.let {
                     mPostList.value = it
                 }
-            } catch (e: Exception) {
-                e.printStackTrace()
-                mPostList.value = postRepository.getPostsLocalData()
             } finally {
                 mLoadingPosts.value = false
             }
