@@ -12,7 +12,7 @@ import br.com.edilsonvilarinho.mygram.data.repository.StoryRepository
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-    private val userRepository: StoryRepository,
+    private val storyRepository: StoryRepository,
     private val postRepository: PostRepository
 ) : ViewModel() {
 
@@ -36,11 +36,12 @@ class MainViewModel(
     fun getStors() {
         viewModelScope.launch {
             try {
-                userRepository.getStorys()?.let {
+                storyRepository.getStorys()?.let {
                     mStoreList.value = it
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
+                mStoreList.value = storyRepository.getStorysLocalData()
             } finally {
                 mLoadingStorys.value = false
             }
@@ -56,6 +57,7 @@ class MainViewModel(
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
+                mPostList.value = postRepository.getPostsLocalData()
             } finally {
                 mLoadingPosts.value = false
             }

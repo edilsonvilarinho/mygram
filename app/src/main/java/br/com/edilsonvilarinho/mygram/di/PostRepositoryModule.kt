@@ -5,5 +5,5 @@ import br.com.edilsonvilarinho.mygram.data.repository.PostRepositoryImpl
 import org.koin.dsl.module
 
 val postRepositoryModule = module {
-    single<PostRepository> { PostRepositoryImpl(get()) }
+    single<PostRepository> { PostRepositoryImpl(get(), get()) }
 }

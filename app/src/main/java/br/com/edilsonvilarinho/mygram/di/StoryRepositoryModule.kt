@@ -5,5 +5,5 @@ import br.com.edilsonvilarinho.mygram.data.repository.StoryRepositoryImpl
 import org.koin.dsl.module
 
 val storyRepositoryModule = module {
-    single<StoryRepository> { StoryRepositoryImpl(get()) }
+    single<StoryRepository> { StoryRepositoryImpl(get(), get()) }
 }

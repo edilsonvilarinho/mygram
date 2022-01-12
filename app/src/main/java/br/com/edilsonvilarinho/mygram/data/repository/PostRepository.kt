@@ -5,4 +5,5 @@ import br.com.edilsonvilarinho.mygram.data.model.Story
 
 interface PostRepository {
     suspend fun getPosts(): List<Post>?
+    suspend fun getPostsLocalData(): List<Post>?
 }
