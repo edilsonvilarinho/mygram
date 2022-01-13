@@ -19,7 +19,7 @@ class StoryLocalDataSourceImplTest {
 
     @Test
     fun `test insert`() = runBlockingTest {
-        val storyEntityList: List<StoryEntity> = TestDataFactory.entityEntityList()
+        val storyEntityList: List<StoryEntity> = TestDataFactory.storyEntityList()
         val dao = mock<StoryDao>()
         val localDataSource = localDataSource(
             dao = dao

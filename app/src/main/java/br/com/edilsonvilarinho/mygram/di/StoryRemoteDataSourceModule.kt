@@ -5,5 +5,5 @@ import br.com.edilsonvilarinho.mygram.data.remote.datasource.story.StoryRemoteDa
 import org.koin.dsl.module
 
 var storyRemoteDataSourceModule = module {
-    single<StoryRemoteDataSource> { StoryRemoteDataSourceImpl() }
+    single<StoryRemoteDataSource> { StoryRemoteDataSourceImpl(get()) }
 }

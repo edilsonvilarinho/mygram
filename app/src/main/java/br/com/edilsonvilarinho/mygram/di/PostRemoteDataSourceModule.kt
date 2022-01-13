@@ -5,5 +5,5 @@ import br.com.edilsonvilarinho.mygram.data.remote.datasource.post.PostRemoteData
 import org.koin.dsl.module
 
 var postRemoteDataSourceModule = module {
-    single<PostRemoteDataSource> { PostRemoteDataSourceImpl() }
+    single<PostRemoteDataSource> { PostRemoteDataSourceImpl(get()) }
 }

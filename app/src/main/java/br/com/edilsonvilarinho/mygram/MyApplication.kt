@@ -15,7 +15,8 @@ class MyApplication : Application() {
         storyRepositoryModule,
         databaseModule,
         postLocalDataSourceModule,
-        storyLocalDataSourceModule
+        storyLocalDataSourceModule,
+        networkModule
     )
 
     override fun onCreate() {
