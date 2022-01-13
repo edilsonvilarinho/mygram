@@ -9,8 +9,6 @@ class PostLocalDataSourceImpl(private val dao: PostDao) : PostLocalDataSource {
     }
 
     override suspend fun insert(postList: List<PostEntity>) {
-        postList.forEach {
-            dao.insert(it)
-        }
+        dao.insert(postList)
     }
 }

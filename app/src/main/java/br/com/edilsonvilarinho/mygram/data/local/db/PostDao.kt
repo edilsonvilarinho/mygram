@@ -9,7 +9,7 @@ import br.com.edilsonvilarinho.mygram.data.local.db.entity.PostEntity
 @Dao
 interface PostDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(postEntity: PostEntity)
+    suspend fun insert(postEntityList: List<PostEntity>)
 
     @Query("SELECT * FROM post")
     suspend fun getAll(): List<PostEntity>

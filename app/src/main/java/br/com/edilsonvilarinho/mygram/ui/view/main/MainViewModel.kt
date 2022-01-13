@@ -36,7 +36,7 @@ class MainViewModel(
     fun getStors() {
         viewModelScope.launch {
             try {
-                storyRepository.getStorys()?.let {
+                storyRepository.getAll()?.let {
                     mStoreList.value = it
                 }
             } finally {
@@ -49,7 +49,7 @@ class MainViewModel(
     fun getPosts() {
         viewModelScope.launch {
             try {
-                postRepository.getPosts()?.let {
+                postRepository.getAll()?.let {
                     mPostList.value = it
                 }
             } finally {

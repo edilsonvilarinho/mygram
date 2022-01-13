@@ -10,7 +10,7 @@ class PostRepositoryImpl(
     private val postRemoteDataSource: PostRemoteDataSource,
     private val postLocalDataSource: PostLocalDataSource
 ) : PostRepository {
-    override suspend fun getPosts(): List<Post>? {
+    override suspend fun getAll(): List<Post>? {
         return try {
             val postList = postRemoteDataSource.getPosts()
             postLocalDataSource.insert(postList.map { it.postEntity() })

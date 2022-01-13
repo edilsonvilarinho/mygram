@@ -9,7 +9,7 @@ import br.com.edilsonvilarinho.mygram.data.local.db.entity.StoryEntity
 @Dao
 interface StoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(users: StoryEntity)
+    suspend fun insert(storyEntityList: List<StoryEntity>)
 
     @Query("SELECT * FROM story")
     suspend fun getAll(): List<StoryEntity>
