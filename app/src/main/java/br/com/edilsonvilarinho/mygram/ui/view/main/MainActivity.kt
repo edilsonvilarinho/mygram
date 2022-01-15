@@ -6,6 +6,8 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.com.edilsonvilarinho.mygram.data.model.Post
+import br.com.edilsonvilarinho.mygram.data.model.Story
 import br.com.edilsonvilarinho.mygram.databinding.ActivityMainBinding
 import br.com.edilsonvilarinho.mygram.ui.view.main.adpter.PostRecyclerViewAdapter
 import br.com.edilsonvilarinho.mygram.ui.view.main.adpter.StoryRecyclerViewAdapter
@@ -36,6 +38,13 @@ class MainActivity : AppCompatActivity() {
         adapterPost = PostRecyclerViewAdapter()
         binding.postList.adapter = adapterPost
         binding.postList.layoutManager = LinearLayoutManager(this)
+        binding.swipeRefresh.setOnRefreshListener {
+            mainViewModel.refresh()
+            binding.shimmerLayoutStorys.isVisible = !binding.shimmerLayoutStorys.isVisible
+            binding.shimmerLayoutPosts.isVisible = !binding.shimmerLayoutPosts.isVisible
+            adapterPost.mPosts = ArrayList<Post>()
+            adapterStory.mStorys = ArrayList<Story>()
+        }
     }
 
     private fun initObservers() {
@@ -47,9 +56,11 @@ class MainActivity : AppCompatActivity() {
         })
         mainViewModel.loadingStorys.observe(this, Observer {
             binding.shimmerLayoutStorys.isVisible = it
+            binding.swipeRefresh.isRefreshing = it
         })
         mainViewModel.loadingPosts.observe(this, Observer {
             binding.shimmerLayoutPosts.isVisible = it
+            binding.swipeRefresh.isRefreshing = it
         })
     }
 

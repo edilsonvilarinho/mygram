@@ -1,123 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     tools:context=".ui.view.main.MainActivity">
 
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerLayoutStorys"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="85dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="match_parent">
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible">
-
-        <LinearLayout
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerLayoutStorys"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="85dp"
+            app:layout_constraintEnd_toEndOf="parent"
 
-            <include layout="@layout/row_story_list_shimmer" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
 
-            <include layout="@layout/row_story_list_shimmer" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <include layout="@layout/row_story_list_shimmer" />
+                <include layout="@layout/row_story_list_shimmer" />
 
-            <include layout="@layout/row_story_list_shimmer" />
+                <include layout="@layout/row_story_list_shimmer" />
 
-            <include layout="@layout/row_story_list_shimmer" />
+                <include layout="@layout/row_story_list_shimmer" />
 
-            <include layout="@layout/row_story_list_shimmer" />
+                <include layout="@layout/row_story_list_shimmer" />
 
-            <include layout="@layout/row_story_list_shimmer" />
+                <include layout="@layout/row_story_list_shimmer" />
 
-            <include layout="@layout/row_story_list_shimmer" />
+                <include layout="@layout/row_story_list_shimmer" />
 
-            <include layout="@layout/row_story_list_shimmer" />
+                <include layout="@layout/row_story_list_shimmer" />
 
-            <include layout="@layout/row_story_list_shimmer" />
+                <include layout="@layout/row_story_list_shimmer" />
 
-            <include layout="@layout/row_story_list_shimmer" />
-        </LinearLayout>
-    </com.facebook.shimmer.ShimmerFrameLayout>
+                <include layout="@layout/row_story_list_shimmer" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/storyList"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:orientation="horizontal"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/list_item_user_istory" />
+                <include layout="@layout/row_story_list_shimmer" />
 
+                <include layout="@layout/row_story_list_shimmer" />
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/granitegray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/storyList" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/postList"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:listitem="@layout/list_item_post" />
-
-
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerLayoutPosts"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/storyList">
-
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/storyList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="85dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/list_item_user_istory" />
 
-            <include layout="@layout/row_post_list_shimmer" />
 
-            <include layout="@layout/row_post_list_shimmer" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/granitegray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/storyList" />
 
-            <include layout="@layout/row_post_list_shimmer" />
 
-            <include layout="@layout/row_post_list_shimmer" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/postList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:listitem="@layout/list_item_post" />
 
-            <include layout="@layout/row_post_list_shimmer" />
 
-            <include layout="@layout/row_post_list_shimmer" />
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerLayoutPosts"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/storyList">
 
-            <include layout="@layout/row_post_list_shimmer" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <include layout="@layout/row_post_list_shimmer" />
+                <include layout="@layout/row_post_list_shimmer" />
 
-            <include layout="@layout/row_post_list_shimmer" />
+                <include layout="@layout/row_post_list_shimmer" />
 
-            <include layout="@layout/row_post_list_shimmer" />
+                <include layout="@layout/row_post_list_shimmer" />
 
-            <include layout="@layout/row_post_list_shimmer" />
-        </LinearLayout>
+                <include layout="@layout/row_post_list_shimmer" />
 
-    </com.facebook.shimmer.ShimmerFrameLayout>
+                <include layout="@layout/row_post_list_shimmer" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <include layout="@layout/row_post_list_shimmer" />
+
+                <include layout="@layout/row_post_list_shimmer" />
+
+                <include layout="@layout/row_post_list_shimmer" />
+
+                <include layout="@layout/row_post_list_shimmer" />
+
+                <include layout="@layout/row_post_list_shimmer" />
+
+                <include layout="@layout/row_post_list_shimmer" />
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

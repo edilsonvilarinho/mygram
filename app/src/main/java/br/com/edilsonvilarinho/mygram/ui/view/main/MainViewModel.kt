@@ -59,4 +59,8 @@ class MainViewModel(
         }
     }
 
+    fun refresh() {
+        getStors()
+        getPosts()
+    }
 }
